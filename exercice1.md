@@ -17,41 +17,37 @@ lsblk
  
 ### Create the First Partition (DATA)
 
-Type n to create a new partition
-Choose p for a primary partition
-Select the partition number (1)
-Press Enter to accept the default first sector
-Type the size of the partition
-Type t to change the partition type et 83 for ext4
-Type w to write the changes
+* Type n to create a new partition
+* Choose p for a primary partition
+* Select the partition number (1)
+* Type the size of the partition
+* Type t to change the partition type et 83 for ext4
+* write the changes
 
 ### Create the SWAP
-sudo fdisk /dev/sdb
-Type n to create a new partition
-Choose p for a primary partition
-Select the partition number (2)
-Press Enter to accept the default first sector
-Press Enter again to accept the default size
-Type t, choose partition 2 et 82 for the swap type
-Type w to write the changes.
+* sudo fdisk /dev/sdb
+* Type n to create a new partition
+* Choose p for a primary partition
+* Select the partition number (2)
+* Type t, choose partition 2 et 82 for the swap type
+* Type w to write the changes.
 
 ### Format the Partitions and activate the second partition as swap
 
-sudo mkfs.ext4 /dev/sdb1
-sudo mkswap /dev/sdb2
-sudo swapon /dev/sdb2
+* sudo mkfs.ext4 /dev/sdb1
+* sudo mkswap /dev/sdb2
+* sudo swapon /dev/sdb2
 
 ### Check the UUID of the DATA Partition and Create the Mount Point
 
-sudo blkid /dev/sdb1
+* sudo blkid /dev/sdb1
 
-sudo nano /etc/fstab
-Add UUID line to automatically mount the DATA partition:
-UUID=    /mnt/DATA  ext4  defaults  0  2
+* sudo nano /etc/fstab
+* Add UUID line to automatically mount the DATA partition:
+ UUID=    /mnt/DATA  ext4  defaults  0  2
 
 ### Verify the Configuration and check the Mount
 
-sudo mount -a
 df -h
 
 #### Voici des captures d'écran montrant les étapes
