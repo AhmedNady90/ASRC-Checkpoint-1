@@ -5,11 +5,11 @@ cut -d: -f1 /etc/passwd
 chmod 744 myfile
 
 # Quelle est la différence entre une variable d'environnement et une variable locale dans un script Bash, et comment pouvez-vous les définir et les utiliser ?
-Variables d'environnement : 
+Variables d'environnement : accessibles à tous les processus enfants du processus où elles ont été définies
 Pour définir et utiliser une variable d'environnement, on fait la commande:
 export Variable=value
 $Variable (use $)
-Variables locales :
+Variables locales : accessibles uniquement dans le script ou le bloc de code où elles ont été définies
 Pour définir et utiliser une variable local, on fait
 Variable=value (withot adding "export")
 we use also $Variable
